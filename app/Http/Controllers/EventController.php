@@ -59,7 +59,29 @@ class EventController extends Controller
 
     $event->save();
 
-    return redirect()->route('events')->with('success','Event Upload successfully');
+    return redirect()->route('events')->with('success','Event Upload Successfully');
     }
 
+    public function show_event(){
+      $events = DB::select('select * from events');
+      return view('events.events_list',['events'=>$events]);
+    }
+
+    public function edit_event($id){
+        $events = DB::select('select * from events where id = ?',[$id]);
+        return view('events.edit_event',['events'=>$events]);
+    }
+
+    public function update_event(Request $request,$id){
+      $event_name= $request['event_name'];
+      $speaker_name= $request['speaker_name'];
+      $event_description= $request['event_description'];
+      $datetimepicker= $request['datetimepicker'];
+      $active = ($request['active'] == "on") ? 1 : 0;
+
+      DB::update('update events set id = ?,event_name=?,speaker_name=?,datetimepicker=?,	active=? where id = ?',[$id,$event_name,$speaker_name,$event_description,$datetimepicker,$active]);
+
+      return redirect()->route('events')
+                       ->with('success','Event Updated Successfully');
+    }
 }

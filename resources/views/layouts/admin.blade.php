@@ -259,7 +259,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('create_event')}}" class="nav-link">
+                <a href="{{route('show_event')}}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Show Events</p>
                 </a>
