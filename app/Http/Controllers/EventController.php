@@ -59,7 +59,7 @@ class EventController extends Controller
 
     $event->save();
 
-    return redirect()->route('events')->with('success','Event Upload Successfully');
+    return redirect()->route('show_event')->with('success','Event Added Successfully');
     }
 
     public function show_event(){
@@ -72,6 +72,12 @@ class EventController extends Controller
         return view('events.edit_event',['events'=>$events]);
     }
 
+    public function delete_event($id){
+      $events = DB::select('delete from events where id= ?',[$id]);
+      return redirect()->route('show_event')
+                       ->with('success','Event Deleted Successfully');
+    }
+
     public function update_event(Request $request,$id){
       $event_name= $request['event_name'];
       $speaker_name= $request['speaker_name'];
@@ -79,9 +85,9 @@ class EventController extends Controller
       $datetimepicker= $request['datetimepicker'];
       $active = ($request['active'] == "on") ? 1 : 0;
 
-      DB::update('update events set id = ?,event_name=?,speaker_name=?,datetimepicker=?,	active=? where id = ?',[$id,$event_name,$speaker_name,$event_description,$datetimepicker,$active]);
+      DB::update('update events set event_name=?,speaker_name=?,event_description=?,datetimepicker=?,	active=? where id = ?',[$event_name,$speaker_name,$event_description,$datetimepicker,$active,$id]);
 
-      return redirect()->route('events')
+      return redirect()->route('show_event')
                        ->with('success','Event Updated Successfully');
     }
 }

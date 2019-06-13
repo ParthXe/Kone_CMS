@@ -111,7 +111,7 @@
       var date =res[0];
       var time= res[1];
       document.getElementById("datetimepicker1").value=datetime;
-      console.log(date+" parth "+time);
+      //console.log(date+" parth "+time);
       $('#datetimepicker1').datetimepicker({
         inline: true,
         sideBySide: true,

@@ -25,3 +25,4 @@ Route::post('/save_event', 'EventController@save_event')->name('save_event');
 Route::get('/show_event', 'EventController@show_event')->name('show_event');
 Route::get('/edit_event/{id}', 'EventController@edit_event')->name('edit_event');
 Route::post('/update_event/{id}', 'EventController@update_event')->name('update_event');
+Route::get('/delete_event/{id}', 'EventController@delete_event')->name('delete_event');

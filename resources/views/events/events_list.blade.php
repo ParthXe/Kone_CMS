@@ -8,10 +8,12 @@
     <div class="card-header"><b>{{ __('Show Events') }}</b></div>
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Project Type</th>
+            <th>Id</th>
+            <th>Event Name</th>
+            <th>Speaker Name</th>
+            <th>Event Description</th>
             <th>Date & Time</th>
+            <!--th>Active</th-->
             <th width="280px">Action</th>
         </tr>
         <div style="display: none;">{{ $i=1 }}</div>
@@ -20,7 +22,9 @@
             <td>{{ $i++}}</td>
             <td>{{ $event->event_name }}</td>
             <td>{{ $event->speaker_name }}</td>
+            <td>{{ $event->event_description }}</td>
             <td>{{ $event->datetimepicker }}</td>
+            <!--td>{{ $event->active }}</td-->
             <td>
                 <form action="" method="POST">
 
@@ -32,7 +36,7 @@
 
 
 
-                    <a class="btn btn-danger" href="#">Delete</a>
+                    <a class="btn btn-danger" href="{{ route('delete_event',$event->id) }}">Delete</a>
                 </form>
             </td>
         </tr>
