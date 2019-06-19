@@ -11,8 +11,8 @@ class EventModel extends Model
   'event_name',
   'speaker_name',
   'event_description',
-  'datetimepicker',
   'active',
+  'session_count'
         // add all other fields
   ];
 
