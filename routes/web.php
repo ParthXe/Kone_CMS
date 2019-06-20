@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+Route::group(['middleware' => 'auth'], function () {
+  /*Route::get('/', function () {
+        return view('show_event');
+   });*/
+   Route::get('/','EventController@show_event');
 });
 
 Auth::routes();
