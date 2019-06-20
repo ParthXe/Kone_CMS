@@ -12,19 +12,22 @@
             <th>Event Name</th>
             <th>Speaker Name</th>
             <th>Event Description</th>
-            <!--th>Event Slots</th>
+            <th>Event Sessions</th>
             <!--th>Date & Time</th>
             <!--th>Active</th-->
             <th width="280px">Action</th>
         </tr>
-        <div style="display: none;">{{ $i=1 }}</div>
+        <div style="display: none;">{{ $i=1 ,$j=$i-1}}</div>
         @foreach ($events as $event)
         <tr>
             <td>{{ $i++}}</td>
             <td>{{ $event->event_name }}</td>
             <td>{{ $event->speaker_name }}</td>
             <td>{{ $event->event_description }}</td>
-            <!--td>{{ $event->active }}</td-->
+            <td>{{ $event_sessions[$j]->event_sessions_time }}</td>
+              <!--td>{{ $event->active }}</td-->
+            <?php $j++; ?>
+
             <td>
                 <form action="" method="POST">
 

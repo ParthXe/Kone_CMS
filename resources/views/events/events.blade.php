@@ -102,7 +102,7 @@
                                 <span class="checkmark"></span>
                                 </label>
                             </div>
-                              <input id="session_count" type="hidden" name="session_count">
+                              <input id="session_count" type="hidden" name="session_count" value="1">
                         </div>
 
                         <div class="form-group row mb-0">

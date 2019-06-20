@@ -83,13 +83,19 @@
                           <button class="add_form_field" style="background:#0071b9;float:right;color:white;border-radius: 50%;border-color:#FFF;">
                             <span style="font-size:16px; font-weight:bold;">+ </span>
                           </button>
-
-                          @for ($x = 0; $x < $count; $x++)
+                          <?php $event_sessions_time=$event_session[0]->event_sessions_time;
+                                $event_sessions_arr=explode(",",$event_sessions_time);
+                                $count1=count($event_sessions_arr);
+                                $event_from_to=explode("-", $event_sessions_arr[0]);
+                          ?>
+                          @for ($x = 0; $x < $count1; $x++)
                           <div class="col-md-10 event_session{{$x+1}}" style="float:left;padding:0!important;margin-bottom: 1%;">
                                   <span style="font-weight:800;margin-right:2%;float:left;">{{$x+1}}.</span>
+                                  <?php  $event_from=explode("-",$event_sessions_arr[$x]);
+                                    $session_f=$event_from[0];?>
                                     <select id="event_session{{$x+1}}_from" class="event_session{{$x+1}}_from" name="event_session{{$x+1}}_from" style="width:38%;float:left;margin-right:4%;">
                                       @foreach($event_session_time as $session_time)
-                                      <?php  $session_f=$event_session[$x]->event_time_from;?>
+
                                        @if($session_time->time == $session_f){
                                          <option selected value="{{$session_time->time}}">{{$session_time->time}}</option>
                                        }
@@ -101,7 +107,8 @@
                                    </select>
                                   <select id="event_session{{$x+1}}_to" class="" name="event_session{{$x+1}}_to" style="width:38%;">
                                     @foreach($event_session_time as $session_time)
-                                      <?php  $session_t=$event_session[$x]->event_time_to;?>
+                                    <?php  $event_from=explode("-",$event_sessions_arr[$x]);
+                                      $session_t=$event_from[1];?>
                                       @if($session_time->time == $session_t){
                                         <option selected value="{{$session_time->time}}">{{$session_time->time}}</option>
                                       }
@@ -117,6 +124,7 @@
                                       </span>
                                   @enderror
                           </div>
+
                             @endfor
                           </div>
                       </div>
@@ -128,7 +136,7 @@
                             <input type="checkbox" name="active" {{ ( $events[0]->active == 1 ) ? 'checked=checked' : '' }}>
                             <span class="checkmark"></span>
                             </label>
-                            <input id="session_count" type="hidden">
+                            <input id="session_count" name="session_count" type="hidden" value="<?php echo $count1; ?>">
                         </div>
                       </div>
                         <div class="form-group row mb-0">
@@ -153,7 +161,7 @@ var add_button = $(".add_form_field");
 var delete_button = $(".delete");
 
 //var x = 1;
-session_count=<?php echo $count;?>;
+session_count=<?php echo $count1;?>;
 var x=session_count;
 
 $(add_button).click(function(e) {
