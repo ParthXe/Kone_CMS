@@ -118,6 +118,7 @@ class EventController extends Controller
 
     public function delete_event($id){
       $events = DB::select('delete from events where id= ?',[$id]);
+      $events = DB::select('delete from event_sessions where event_id= ?',[$id]);
       return redirect()->route('show_event')
                        ->with('success','Event Deleted Successfully');
     }
