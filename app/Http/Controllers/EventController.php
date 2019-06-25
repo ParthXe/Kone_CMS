@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\EventModel;
+use App\EventModel as Events;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use PDF;
 
 class EventController extends Controller
 {
@@ -122,4 +122,12 @@ class EventController extends Controller
       return redirect()->route('show_event')
                        ->with('success','Event Deleted Successfully');
     }
+
+     public function events_report(Request $request){
+       $events = DB::select('select * from events');
+       $event_sessions = DB::select('select * from event_sessions');
+       view()->share('events',$events);
+       view()->share('event_sessions',$event_sessions);
+       return view('events_report');
+     }
 }

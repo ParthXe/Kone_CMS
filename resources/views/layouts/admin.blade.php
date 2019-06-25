@@ -107,6 +107,12 @@
                   <p>Show Events</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('events_report')}}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Event Report</p>
+                </a>
+              </li>
             </ul>
           </li>
       </nav>
