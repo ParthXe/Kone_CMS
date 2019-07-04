@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\EventModel as Events;
+use App\EventModel;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -25,7 +25,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create_event()
     {
         //
           $event_session_time=DB::select('select * from events_session_time');
@@ -38,7 +38,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store_event(Request $request)
     {
         //
     }
@@ -96,7 +96,7 @@ class EventController extends Controller
       }
       $event_sessions = implode(",", $event_sessions_arr);
       //echo $event_sessions;
-      echo DB::update('update event_sessions set event_sessions_time=?,updated_at=? where event_id = ?',[$event_sessions,$event_updated_time,$event_id]);
+      DB::update('update event_sessions set event_sessions_time=?,updated_at=? where event_id = ?',[$event_sessions,$event_updated_time,$event_id]);
 
       return redirect()->route('show_event')
                        ->with('success','Event Updated Successfully');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EventSessions extends Migration
+class CreateLivePollingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class EventSessions extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('event_sessions', function (Blueprint $table) {
+        Schema::create('live_polling', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('event_id');
-            $table->string('event_sessions_time');
+            $table->string('question');
+            $table->string('optionA');
+            $table->string('optionB');
+            $table->string('optionC');
+            $table->string('optionD');
+            $table->string('optionE');
+            $table->string('active');
             $table->timestamps();
         });
     }
@@ -29,7 +33,6 @@ class EventSessions extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('event_sessions');
+        Schema::dropIfExists('live_polling');
     }
 }

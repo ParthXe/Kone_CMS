@@ -62,7 +62,7 @@
               <a href="#" class="nav-link">
                     <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
                 <p style="margin-left:5%;">
-                  {{{ Auth::user()->name}}}
+                  {{{ Auth::user()->name }}}
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
@@ -107,14 +107,55 @@
                   <p>Show Events</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{route('events_report')}}" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Event Report</p>
-                </a>
-              </li>
             </ul>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-bar-chart"></i>
+                <p>
+                  Live Polling
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('create_live_polling')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Create Live Poll</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('show_live_polling')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Show Live Polls</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-file"></i>
+                <p>
+                  Reports
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('events_report')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Events Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('live_pollings_report')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Live Polling Report</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
           </li>
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -140,7 +181,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -180,5 +221,6 @@
 <script src="{{ asset('plugins/datetimepicker/jquery.datetimepicker.full.js') }}"></script-->
 <script src="{{ asset('plugins/datetimepicker/jquery.js') }}"></script>
 <script src="{{ asset('plugins/timepicker/jquery.timepicker.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 </body>
 </html>
