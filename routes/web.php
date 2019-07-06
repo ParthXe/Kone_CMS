@@ -55,3 +55,7 @@ Route::get('/edit_feedback/{id}', 'FeedbackController@edit_feedback')->name('edi
 Route::post('/update_feedback/{id}', 'FeedbackController@update_feedback')->name('update_feedback');
 Route::get('/delete_feedback/{id}', 'FeedbackController@delete_feedback')->name('delete_feedback');
 Route::get('/feedbacks_report',array('as'=>'feedbacks_report','uses'=>'FeedbackController@feedbacks_report'));
+
+// Attendee list
+Route::get('/show_attendee_list', 'FeedbackController@show_attendee_list')->name('show_attendee_list');
+Route::post('/filter_attendee_list', 'FeedbackController@filter_attendee_list')->name('filter_attendee_list');

@@ -121,4 +121,49 @@ class FeedbackController extends Controller
       $feedback_sessions = DB::select('select * from feedback_sessions');
       return view('feedback_report',['feedbacks'=>$feedbacks,'feedback_sessions'=>$feedback_sessions]);
     }
+
+    public function show_attendee_list(){
+      $attendee_list = DB::select('select * from user_details');
+      return view('attendee_list',['attendee_list'=>$attendee_list]);
+    }
+
+    public function filter_attendee_list(Request $request){
+      //echo $request['message'];
+    	if($request['message']=='9')
+    	{
+    		$attendee_list = DB::select('select * from user_details');
+        		 	$response = array(
+              'attendee_list' => $attendee_list,
+          );
+    				return response()->json($response);
+    	}
+      else if($request['message']=='1')
+    	{
+    		$attendee_list = DB::select('select * from user_details where session_id=1');
+        		 	$response = array(
+              'attendee_list' => $attendee_list,
+          );
+    				return response()->json($response);
+    	}
+      else if($request['message']=='2')
+    	{
+    		$attendee_list = DB::select('select * from user_details where session_id=2');
+        		 	$response = array(
+              'attendee_list' => $attendee_list,
+          );
+    				return response()->json($response);
+    	}
+      else if($request['message']=='0')
+      {
+        $attendee_list = DB::select('select * from user_details where session_id=0');
+              $response = array(
+              'attendee_list' => $attendee_list,
+          );
+            return response()->json($response);
+      }
+    	else
+    	{
+    				return false;
+    	}
+    }
 }

@@ -155,6 +155,14 @@
               </ul>
             </li>
             <li class="nav-item has-treeview">
+              <a href="{{route('show_attendee_list')}}" class="nav-link">
+                <i class="nav-icon fa fa-list"></i>
+                <p>
+                  Attendee List
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>
