@@ -38,18 +38,18 @@ class Live_Polling_Controller extends Controller
     public function store_live_polling(Request $request)
     {
         //
-        $event= new Live_Polling_Model();
-        $event->question= $request['question'];
-        $event->optionA= $request['optionA'];
-        $event->optionB= $request['optionB'];
-        $event->optionC= $request['optionC'];
-        $event->optionD= $request['optionD'];
-        $event->optionE= $request['optionE'];
-        $event->active = ($request['active'] == "on") ? 1 : 0;
-        $event_created_time=date("Y-m-d H:i:s");
-        $event_updated_time=date("Y-m-d H:i:s");
+        $poll= new Live_Polling_Model();
+        $poll->question= $request['question'];
+        $poll->optionA= $request['optionA'];
+        $poll->optionB= $request['optionB'];
+        $poll->optionC= $request['optionC'];
+        $poll->optionD= $request['optionD'];
+        $poll->optionE= $request['optionE'];
+        $poll->active = ($request['active'] == "on") ? 1 : 0;
+        $poll_created_time=date("Y-m-d H:i:s");
+        $poll_updated_time=date("Y-m-d H:i:s");
         // add other fields
-        $event->save();
+        $poll->save();
         return redirect()->route('show_live_polling')->with('success','Live Poll Added Successfully');
     }
 

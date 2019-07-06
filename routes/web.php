@@ -37,7 +37,7 @@ Route::get('/delete_event/{id}', 'EventController@delete_event')->name('delete_e
 Route::get('/events_report',array('as'=>'events_report','uses'=>'EventController@events_report'));
 
 // Live_Polling Routes
-Route::get('/events', 'Live_Polling_Controller@index')->name('events');
+Route::get('/live_pollings', 'Live_Polling_Controller@index')->name('live_pollings');
 Route::get('/create_live_polling', 'Live_Polling_Controller@create_live_polling')->name('create_live_polling');
 Route::post('/store_live_polling', 'Live_Polling_Controller@store_live_polling')->name('store_live_polling');
 Route::get('/show_live_polling', 'Live_Polling_Controller@show_live_polling')->name('show_live_polling');
@@ -45,3 +45,13 @@ Route::get('/edit_live_polling/{id}', 'Live_Polling_Controller@edit_live_polling
 Route::post('/update_live_polling/{id}', 'Live_Polling_Controller@update_live_polling')->name('update_live_polling');
 Route::get('/delete_live_polling/{id}', 'Live_Polling_Controller@delete_live_polling')->name('delete_live_polling');
 Route::get('/live_pollings_report',array('as'=>'live_pollings_report','uses'=>'Live_Polling_Controller@live_pollings_report'));
+
+//  Feedback
+Route::get('/feedbacks', 'FeedbackController@index')->name('feedbacks');
+Route::get('/create_feedback', 'FeedbackController@create_feedback')->name('create_feedback');
+Route::post('/store_feedback', 'FeedbackController@store_feedback')->name('store_feedback');
+Route::get('/show_feedback', 'FeedbackController@show_feedback')->name('show_feedback');
+Route::get('/edit_feedback/{id}', 'FeedbackController@edit_feedback')->name('edit_feedback');
+Route::post('/update_feedback/{id}', 'FeedbackController@update_feedback')->name('update_feedback');
+Route::get('/delete_feedback/{id}', 'FeedbackController@delete_feedback')->name('delete_feedback');
+Route::get('/feedbacks_report',array('as'=>'feedbacks_report','uses'=>'FeedbackController@feedbacks_report'));

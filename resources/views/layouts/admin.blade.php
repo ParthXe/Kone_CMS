@@ -110,6 +110,29 @@
             </ul>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-comments-o"></i>
+                <p>
+                  Feedback
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('create_feedback')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Create Feedback</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('show_feedback')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Show Feedback</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-bar-chart"></i>
                 <p>
                   Live Polling
@@ -135,7 +158,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-file"></i>
                 <p>
-                  Reports
+                  Generate Reports
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
@@ -143,13 +166,19 @@
                 <li class="nav-item">
                   <a href="{{route('events_report')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Events Report</p>
+                    <p>Event Report</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('live_pollings_report')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>Live Polling Report</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('feedbacks_report')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Feedback Report</p>
                   </a>
                 </li>
               </ul>
@@ -214,7 +243,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<!--script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!--script src="{{ asset('plugins/datetimepicker/jquery.datetimepicker.js') }}"></script>
