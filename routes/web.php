@@ -45,6 +45,8 @@ Route::get('/edit_live_polling/{id}', 'Live_Polling_Controller@edit_live_polling
 Route::post('/update_live_polling/{id}', 'Live_Polling_Controller@update_live_polling')->name('update_live_polling');
 Route::get('/delete_live_polling/{id}', 'Live_Polling_Controller@delete_live_polling')->name('delete_live_polling');
 Route::get('/live_pollings_report',array('as'=>'live_pollings_report','uses'=>'Live_Polling_Controller@live_pollings_report'));
+Route::get('/live_polling_api', 'Live_Polling_Controller@live_polling_api')->name('live_polling_api');
+Route::get('/live_polling_question_api/{id}', 'Live_Polling_Controller@live_polling_question_api')->name('live_polling_question_api');
 
 //  Feedback
 Route::get('/feedbacks', 'FeedbackController@index')->name('feedbacks');

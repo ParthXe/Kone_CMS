@@ -122,4 +122,11 @@ class Live_Polling_Controller extends Controller
       $polling_sessions = DB::select('select * from polling_session');
       return view('live_polling_report',['live_pollings'=>$live_pollings,'polling_sessions'=>$polling_sessions]);
     }
+
+    public function live_polling_api(){
+        return Live_Polling_Model::all();
+    }
+    public function live_polling_question_api($id){
+         return Live_Polling_Model::findOrFail($id);
+    }
 }
