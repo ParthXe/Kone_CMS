@@ -108,6 +108,30 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-list"></i>
+              <p>
+                Agenda
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('create_agenda')}}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Create Agenda</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('show_agenda')}}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Show Agenda</p>
+                </a>
+              </li>
+            </ul>
+          </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-comments-o"></i>
@@ -156,7 +180,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="{{route('show_attendee_list')}}" class="nav-link">
-                <i class="nav-icon fa fa-list"></i>
+                <i class="nav-icon fa fa-users"></i>
                 <p>
                   Attendee List
                 </p>
@@ -164,7 +188,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-file"></i>
+                <i class="nav-icon fa fa-file-text"></i>
                 <p>
                   Generate Reports
                   <i class="right fa fa-angle-left"></i>

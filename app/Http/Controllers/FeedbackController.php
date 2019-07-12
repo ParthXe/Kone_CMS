@@ -166,4 +166,48 @@ class FeedbackController extends Controller
     				return false;
     	}
     }
+    public function feedback_api(){
+        return FeedbackModel::all();
+    }
+    public function feedback_question_api($id){
+         return FeedbackModel::findOrFail($id);
+    }
+
+    public function attendee_api(){
+      $attendee_list = DB::select('select id,name,email,mobile,profile_pic,session_id from user_details');
+        $response = array ($attendee_list);
+          return response()->json($response);
+    }
+
+    public function attendee_session_api($id){
+      if($id=='9')
+      {
+        $attendee_list = DB::select('select id,name,email,mobile,profile_pic,session_id from user_details');
+              $response = array($attendee_list);
+            return response()->json($response);
+      }
+      else if($id=='1')
+      {
+        $attendee_list = DB::select('select id,name,email,mobile,profile_pic,session_id from user_details where session_id=1');
+              $response = array($attendee_list);
+            return response()->json($response);
+      }
+      else if($id=='2')
+      {
+        $attendee_list = DB::select('select id,name,email,mobile,profile_pic,session_id from user_details where session_id=2');
+              $response = array($attendee_list);
+            return response()->json($response);
+      }
+      else if($id=='0')
+      {
+        $attendee_list = DB::select('select id,name,email,mobile,profile_pic,session_id from user_details where session_id=0');
+              $response = array($attendee_list);
+            return response()->json($response);
+      }
+      else
+      {
+            return false;
+      }
+    }
+
 }

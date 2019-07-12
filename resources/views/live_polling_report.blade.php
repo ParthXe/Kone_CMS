@@ -29,6 +29,7 @@ $(document).ready(function(){
   var session_qid,qid;
   var answers=[];
   var result=[];
+  var total=[];
   var uniquea=[];
   var uniqueacount=[];
   var live_pollings = [];
@@ -126,7 +127,7 @@ $(document).ready(function(){
     for(var i=0;i<unique_length;i++)
     {
       //console.log(live_polling_sessions_unique_qanda[i]);
-      var total=live_polling_sessions_unique_qanda[i].length;
+      total.push(live_polling_sessions_unique_qanda[i].length);
       result=accumulator(live_polling_sessions_unique_qanda[i]);
       //console.log(result);
       for(var k=0;k<result.length;k++){
@@ -141,7 +142,7 @@ $(document).ready(function(){
 
       //
     }
-      for(var k=0;k<result.length;k++){
+      for(var k=0;k<=result.length;k++){
         //console.log("uniquea "+uniquea[k]);
         //console.log("uniqueacount "+uniqueacount[k]);
         optionA=0;
@@ -155,23 +156,23 @@ $(document).ready(function(){
         //console.log("uniquea"+count1[l]);
         //console.log(count1[l]+"->"+parseInt((count[l])*100/total));
         if(count1[l]==1){
-          optionA=optionA+parseInt((count[l])*100/total);
+          optionA=optionA+parseInt((count[l])*100/total[k]);
           //console.log("optionA "+optionA);
         }
         else if (count1[l]==2) {
-          optionB=optionB+parseInt((count[l])*100/total);
+          optionB=optionB+parseInt((count[l])*100/total[k]);
           //console.log("optionB "+optionB);
         }
         else if (count1[l]==3) {
-          optionC=optionC+parseInt((count[l])*100/total);
+          optionC=optionC+parseInt((count[l])*100/total[k]);
           //console.log("optionC "+optionC);
         }
         else if (count1[l]==4) {
-          optionD=optionD+parseInt((count[l])*100/total);
+          optionD=optionD+parseInt((count[l])*100/total[k]);
           //console.log("optionD "+optionD);
         }
         else if (count1[l]==5) {
-          optionE=optionE+parseInt((count[l])*100/total);
+          optionE=optionE+parseInt((count[l])*100/total[k]);
           //console.log("optionE "+optionE);
         }
       }
@@ -184,7 +185,7 @@ $(document).ready(function(){
         labelD=live_pollings[k]['optionD'];
         labelE=live_pollings[k]['optionE'];
         question=live_pollings[k]['question'];
-        cId='charts'+k;
+        cId='charts'+(k+1);
         //console.log(optionA,optionB,optionC,optionD,optionE,labelA,labelB,labelC,labelD,labelE,question,cId);
         drawGraph(optionA,optionB,optionC,optionD,optionE,labelA,labelB,labelC,labelD,labelE,question,cId);
     }
@@ -247,7 +248,7 @@ $(document).ready(function(){
 $('#downloadbtn').click(function(){
   var body= $("#content").html();
   var doc = new jsPDF("p", "pt", "letter");
-  
+
   var elementHandler = {
     '#downloadiv': function (element, renderer) {
       return true;
